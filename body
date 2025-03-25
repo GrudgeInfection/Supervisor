@@ -10,6 +10,7 @@ while ($true) {
 
     if ($command -eq $command2) {
         Write-Host "Command unchanged. Exiting."
+        Start-Sleep -Seconds 5 # Wait before retrying
         return
     }
     else {
